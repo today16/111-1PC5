@@ -27,7 +27,7 @@ namespace _111_1PC5
 
             Response.Write("可以獲得最多的錢是"+mt_GetMost(i_Num, i_CtNum));
             Response.Write("<br>");
-            Response.Write("可以獲得最多的錢是" + mt_GetLeast(i_Num, i_CtNum));
+            Response.Write("可以獲得最少的錢是" + mt_GetLeast(i_Num, i_CtNum));
         }
         int mt_GetMost(int[,] i_Num, int[] i_CtNum)
         {
