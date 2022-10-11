@@ -25,14 +25,14 @@ namespace _111_1PC5
                 1080,144,1800,3600
             };
 
-            Response.Write("可以獲得最多的錢是"+mt_GetMost(i_Num, i_CtNum));
+            Response.Write("可以獲得最多的錢的和是" + mt_GetMost(i_Num, i_CtNum));
             Response.Write("<br>");
-            Response.Write("可以獲得最少的錢是" + mt_GetLeast(i_Num, i_CtNum));
+            Response.Write("可以獲得最少的錢的和是" + mt_GetLeast(i_Num, i_CtNum));
         }
         int mt_GetMost(int[,] i_Num, int[] i_CtNum)
         {
             int i_Max = 0;
-
+            int M = 0;
             for (int i_Row = 0; i_Row < i_Num.GetLength(0); i_Row++)
             {
                 int i_Rsum = 0;
@@ -49,6 +49,7 @@ namespace _111_1PC5
                     if (i_CtNum[i_Rsum - 6] > i_Max)
                     {
                         i_Max = i_CtNum[i_Rsum - 6];
+                        M = i_Rsum;
                     }
                 }
                 else
@@ -56,6 +57,7 @@ namespace _111_1PC5
                     if (i_CtNum[i_Csum - 6] > i_Max)
                     {
                         i_Max = i_CtNum[i_Csum - 6];
+                        M = i_Csum;
                     }
                 }
             }
@@ -64,6 +66,7 @@ namespace _111_1PC5
             if (i_CtNum[i_Slash1 - 6] > i_Max)
             {
                 i_Max = i_CtNum[i_Slash1 - 6];
+                M = i_Slash1;
             }
             //Response.Write((i_Slash1).ToString()); Test
 
@@ -71,13 +74,15 @@ namespace _111_1PC5
             if (i_CtNum[i_Slash2 - 6] > i_Max)
             {
                 i_Max = i_CtNum[i_Slash2 - 6];
+                M = i_Slash2;
             }
             //Response.Write((i_Slash2).ToString()); Test
-            return i_Max;
+            return M;
         }
         int mt_GetLeast(int[,] i_Num, int[] i_CtNum)
         {
             int i_Min = 10001;
+            int M = 0;
 
             for (int i_Row = 0; i_Row < i_Num.GetLength(0); i_Row++)
             {
@@ -95,6 +100,7 @@ namespace _111_1PC5
                     if (i_CtNum[i_Rsum - 6] < i_Min)
                     {
                         i_Min = i_CtNum[i_Rsum - 6];
+                        M = i_Rsum;
                     }
                 }
                 else
@@ -102,6 +108,7 @@ namespace _111_1PC5
                     if (i_CtNum[i_Csum - 6] < i_Min)
                     {
                         i_Min = i_CtNum[i_Csum - 6];
+                        M = i_Csum;
                     }
                 }
             }
@@ -110,6 +117,7 @@ namespace _111_1PC5
             if (i_CtNum[i_Slash1 - 6] < i_Min)
             {
                 i_Min = i_CtNum[i_Slash1 - 6];
+                M = i_Slash1;
             }
             //Response.Write((i_Slash1).ToString()); Test
 
@@ -117,9 +125,10 @@ namespace _111_1PC5
             if (i_CtNum[i_Slash2 - 6] < i_Min)
             {
                 i_Min = i_CtNum[i_Slash2 - 6];
+                M = i_Slash2;
             }
             //Response.Write((i_Slash2).ToString()); Test
-            return i_Min;
+            return M;
         }
     }
 }
